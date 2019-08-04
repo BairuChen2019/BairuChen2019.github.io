@@ -185,8 +185,8 @@ th {
 }
 body {
   position: relative;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
+  font-size: 16px;
   line-height: 2;
   color: #555;
   background: #fff;
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 h1,
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: Georgia, sans;
 }
 h2,
 h3,
@@ -445,11 +445,11 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 800px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 900px;
+    width: 1000px;
   }
 }
 .main {
@@ -457,11 +457,11 @@ body {
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 800px;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
-    width: 900px;
+    width: 1000px;
   }
 }
 .footer {
@@ -474,11 +474,11 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 800px;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
-    width: 900px;
+    width: 1000px;
   }
 }
 pre,
@@ -493,7 +493,7 @@ pre,
 }
 pre,
 code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: "Input Mono", "PT Mono", Consolas, Monaco, Menlo, monospace;
 }
 code {
   padding: 2px 4px;
@@ -1112,8 +1112,8 @@ pre .javascript .function {
   position: relative;
   display: inline-block;
   padding: 0 40px;
-  color: #fff;
-  background: #222;
+  color: #fff !important;
+  background: #00008b !important;
   border-bottom: none;
 }
 .brand:hover {
@@ -1203,8 +1203,9 @@ pre .javascript .function {
   display: block;
   font-size: 13px;
   line-height: inherit;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #999;
   transition-property: border-color;
+  color: #fff !important;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
@@ -1237,7 +1238,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1641,6 +1642,13 @@ pre .javascript .function {
 .fancybox-close:hover {
   border: none;
 }
+.post-copyright {
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+  list-style: none;
+}
 .rtl.post-body p,
 .rtl.post-body a,
 .rtl.post-body h1,
@@ -1822,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f1ff39;
+  background: #ffda94;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2659,4 +2667,49 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+body {
+  background: url("https://source.unsplash.com/random/1600x900");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+.post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.main-inner {
+  margin-top: 60px;
+  padding: 60px 60px 60px 60px;
+  background: #fff;
+  opacity: 0.9;
+  min-height: 500px;
+}
+.footer-inner {
+  color: #fff;
+}
+#sidebar p,
+#sidebar span,
+#sidebar a {
+  color: #fff;
+}
+#sidebar {
+  background: url("https://source.unsplash.com/random/400x900");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#sidebar p,
+#sidebar span,
+#sidebar a {
+  color: #fff;
+}
+* {
+  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword2.ico"), auto !important;
+}
+:active {
+  cursor: url("http://om8u46rmb.bkt.clouddn.com/sword1.ico"), auto !important;
 }
