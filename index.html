@@ -300,6 +300,197 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenbairu.com/2019/09/01/GMT地形数据总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen_BR">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blue_Ocean">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/01/GMT地形数据总结/" itemprop="url">GMT地形数据总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-01T13:48:03+08:00">
+                2019-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-sharing/" itemprop="url" rel="index">
+                    <span itemprop="name">Data-sharing</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-sharing/GIS/" itemprop="url" rel="index">
+                    <span itemprop="name">GIS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="GMT地形数据总结"><a href="#GMT地形数据总结" class="headerlink" title=" GMT地形数据总结"></a><font size="6" color="#B22222"> GMT地形数据总结</font></h1><p>etopo5：GMT网格数据之etopo5</p>
+<p>etopo2：GMT网格数据之ETOPO2v2</p>
+<p>etopo1：GMT网格数据之ETOPO1</p>
+<p>GTOPO30：GMT网格数据之GTOPO30</p>
+<p>SRTM30_PLUS: 全球地形起伏数据：SRTM30_PLUS</p>
+<p>SRTM3：高精度地形网格数据SRTM</p>
+<p>ASTER GDEM：全球数字高程数据：ASTER GDEM</p>
+<p>其中etopo数据包含了全球地形和海水深度数据；GTOPO30数据包含了全球地形数据；SRTM30_PLUS精度：30弧秒，网格精度约 1 km,包括全球地形和海洋深度数据，大部分区域使用SRTM30中的全球地形数据，高纬度区域使用GTOPO30数据（无SRTM数据），南纬81度到北纬81度的海底地形数据来自于Smith和Sandwell的全球1分数据等;SRTM3数据包含了全球大部分区域的地形数据。ASTER GDEM数据覆盖范围为北纬83°到南纬83°之间的所有陆地区域，达到了地球陆地表面的99%。</p>
+<p>对于全球尺度或者大尺度地形图来说，可以使用etopo1数据；</p>
+<p>对于3度<em>3度-10度</em>10度的区域，可以使用GTOPO30数据；</p>
+<p>对于3度*3度以下的区域，可以使用SRTM3数据。</p>
+<p>etopo5是全球地形及水深数据，其网格采样间隔为5弧分，目前已经被更高精度的etopo1所取代，但是在绘制大区域地形（比如全球）时，5弧分的精度也够用；</p>
+<pre><code>etopo2v2与ETOPO5类似，也是高程+海底地形数据，其采样间隔为2弧分；
+
+etopoO1包含了全球地形和海洋深度，采样间隔为1弧分，是目前精度最高的global relief数据；
+
+GTOPO30是USGS公布的全球数字高程模型，其采样间隔为30弧秒；
+
+SRTM，全称为Shuttle Radar Topography Mission，该项目获取了北纬60度至南纬60度之间的雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的SRTM地形产品数据。</code></pre><p><strong>ETOPO1：</strong></p>
+<p>其分为两个版本，Ice Surface和Bedrock，两个版本基本一致。不同之处在于在处理南极洲和Greenland地形时，前者给出的是加上冰盖层之后的高程，后者给出的是岩床的高程。</p>
+<p>对于每个版本又细分为 grid-registered和cell-registered，其中grid-registered是权威版本，cell-registered是衍生版本，因而推荐下载使用grid-registered版本。</p>
+<p>在每个子版本下又有多种数据格式， netCDF，binary， xyz，tiff。</p>
+<p>我选择的是grid-registered版本的binary格式。</p>
+<p><strong>ASTER GDEM</strong></p>
+<p>ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与SRTM一样为数字高程DEM，其全球空间分辨率为30米。该数据是根据 NASA的新一代对地观测卫星Terra的详尽观测结果制作完成的。其数据覆盖范围为北纬83°到南纬83°之间的所有陆地区域，达到了地球陆地表面的99%。（摘自百度百科）。号称是“迄今最完整的全球地形数据”。</p>
+<p>ASTER GDEM：空间分辨率：1弧度秒 （约30 米），精度：垂直精度20米，水平精度30米，SRTM数据的纬度覆盖范围是[-60,60]，ASTER GDEM数据的纬度覆盖范围为[-83,83]；SRTM的空间分辨率一般为90m，只有美国境内存在空间分辨率为30m的数据；ASTER GDEM的空间分辨率为30m；</p>
+<p>网站：<a href="http://gdem.ersdac.jspacesystems.or.jp/" target="_blank" rel="noopener">http://gdem.ersdac.jspacesystems.or.jp/</a></p>
+<p>网站需要注册，即可免费下载数据；</p>
+<p>点击“Search”即可进入数据选择界面；</p>
+<p>数据被划分为1度*1度的区块，每个区块文件名以区块左下角的经纬度值来命名；</p>
+<p>数据选择界面有四种方式用来选择区块，界面的设计不太习惯，注意看英文；</p>
+<p>数据可以单独下载，也可以批量下载；批量下载貌似需要处理一段时间；</p>
+<p>下载的文件为zip压缩文件，包含了两个文件：dem和num，二者均为GeoTiff格式；</p>
+<p>dem数据即为数字高程数据；</p>
+<p>num数据也称为QA文件，即质量评估文件，其包含了每一点的高程数据的来源等信息，一般用不到；</p>
+<p>使用GDAL提供的工具将其转换为GMT可识别的netCDF格式：</p>
+<p>gdal_translate -of GMT ASTGTM2_N36E111_dem.tif ASTGTM2_N36E111_dem.grd</p>
+<p><strong>References：</strong></p>
+<p>[1] <a href="https://blog.csdn.net/Theo93/article/details/107183786" target="_blank" rel="noopener">https://blog.csdn.net/Theo93/article/details/107183786</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://chenbairu.com/2019/08/06/“【Paper-sharing】Deep-learning-and-process-understanding-for-data-driven-Earth-system-science“/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -650,7 +841,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -661,7 +852,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -672,7 +863,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

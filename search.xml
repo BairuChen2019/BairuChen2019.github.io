@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[GMT地形数据总结]]></title>
+    <url>%2F2019%2F09%2F01%2FGMT%E5%9C%B0%E5%BD%A2%E6%95%B0%E6%8D%AE%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[GMT地形数据总结etopo5：GMT网格数据之etopo5 etopo2：GMT网格数据之ETOPO2v2 etopo1：GMT网格数据之ETOPO1 GTOPO30：GMT网格数据之GTOPO30 SRTM30_PLUS: 全球地形起伏数据：SRTM30_PLUS SRTM3：高精度地形网格数据SRTM ASTER GDEM：全球数字高程数据：ASTER GDEM 其中etopo数据包含了全球地形和海水深度数据；GTOPO30数据包含了全球地形数据；SRTM30_PLUS精度：30弧秒，网格精度约 1 km,包括全球地形和海洋深度数据，大部分区域使用SRTM30中的全球地形数据，高纬度区域使用GTOPO30数据（无SRTM数据），南纬81度到北纬81度的海底地形数据来自于Smith和Sandwell的全球1分数据等;SRTM3数据包含了全球大部分区域的地形数据。ASTER GDEM数据覆盖范围为北纬83°到南纬83°之间的所有陆地区域，达到了地球陆地表面的99%。 对于全球尺度或者大尺度地形图来说，可以使用etopo1数据； 对于3度3度-10度10度的区域，可以使用GTOPO30数据； 对于3度*3度以下的区域，可以使用SRTM3数据。 etopo5是全球地形及水深数据，其网格采样间隔为5弧分，目前已经被更高精度的etopo1所取代，但是在绘制大区域地形（比如全球）时，5弧分的精度也够用； etopo2v2与ETOPO5类似，也是高程+海底地形数据，其采样间隔为2弧分； etopoO1包含了全球地形和海洋深度，采样间隔为1弧分，是目前精度最高的global relief数据； GTOPO30是USGS公布的全球数字高程模型，其采样间隔为30弧秒； SRTM，全称为Shuttle Radar Topography Mission，该项目获取了北纬60度至南纬60度之间的雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的SRTM地形产品数据。ETOPO1： 其分为两个版本，Ice Surface和Bedrock，两个版本基本一致。不同之处在于在处理南极洲和Greenland地形时，前者给出的是加上冰盖层之后的高程，后者给出的是岩床的高程。 对于每个版本又细分为 grid-registered和cell-registered，其中grid-registered是权威版本，cell-registered是衍生版本，因而推荐下载使用grid-registered版本。 在每个子版本下又有多种数据格式， netCDF，binary， xyz，tiff。 我选择的是grid-registered版本的binary格式。 ASTER GDEM ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与SRTM一样为数字高程DEM，其全球空间分辨率为30米。该数据是根据 NASA的新一代对地观测卫星Terra的详尽观测结果制作完成的。其数据覆盖范围为北纬83°到南纬83°之间的所有陆地区域，达到了地球陆地表面的99%。（摘自百度百科）。号称是“迄今最完整的全球地形数据”。 ASTER GDEM：空间分辨率：1弧度秒 （约30 米），精度：垂直精度20米，水平精度30米，SRTM数据的纬度覆盖范围是[-60,60]，ASTER GDEM数据的纬度覆盖范围为[-83,83]；SRTM的空间分辨率一般为90m，只有美国境内存在空间分辨率为30m的数据；ASTER GDEM的空间分辨率为30m； 网站：http://gdem.ersdac.jspacesystems.or.jp/ 网站需要注册，即可免费下载数据； 点击“Search”即可进入数据选择界面； 数据被划分为1度*1度的区块，每个区块文件名以区块左下角的经纬度值来命名； 数据选择界面有四种方式用来选择区块，界面的设计不太习惯，注意看英文； 数据可以单独下载，也可以批量下载；批量下载貌似需要处理一段时间； 下载的文件为zip压缩文件，包含了两个文件：dem和num，二者均为GeoTiff格式； dem数据即为数字高程数据； num数据也称为QA文件，即质量评估文件，其包含了每一点的高程数据的来源等信息，一般用不到； 使用GDAL提供的工具将其转换为GMT可识别的netCDF格式： gdal_translate -of GMT ASTGTM2_N36E111_dem.tif ASTGTM2_N36E111_dem.grd References： [1] https://blog.csdn.net/Theo93/article/details/107183786]]></content>
+      <categories>
+        <category>Data-sharing</category>
+        <category>GIS</category>
+      </categories>
+      <tags>
+        <tag>Gis</tag>
+        <tag>Ocean Data</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[【Paper-sharing】Deep-learning-and-process-understanding-for-data-driven-Earth-system-science]]></title>
     <url>%2F2019%2F08%2F06%2F%E2%80%9C%E3%80%90Paper-sharing%E3%80%91Deep-learning-and-process-understanding-for-data-driven-Earth-system-science%E2%80%9C%2F</url>
     <content type="text"><![CDATA[Deep learning and process understanding for data-driven Earth system science Markus Reichstein et al 2019 in Nature*Fig. 1 | Four examples of typical deep learning applications (left panels) and the geoscientific problems they can be applied to (right panels). * 这是一篇综述性文章，介绍了机器学习如何在地学中的应用与挑战。地球系统科学进入了大数据时代。地球系统数据就是典型的大数据，具备大数据四大特征：volume, velocity, variety and veracity（体积，速度，多样性和准确性），例如各种遥感、定点观测、模式数据。如今面临挑战就是如何从这些大数据中提取并解读信息，因为信息收集速度远大于我们所能消化的速度。数据的增多并未带对系统预测能力的提高，我们需要对数据进行理解。在这种背景下，机器学习就是我们很好的机遇。 文章从以几方面具体展开论述： （1）地学中最先进的机器学习诸如神经网络、随机森林方法很早就应用于地学中的分类、变化检测、土壤制图问题。但这些应用是针对空间，在时间上是相对静态的，但地球是不断变化的。机器学习回归方法在时间动态上具有优势，比如具有隐含层的人工神经网络，可预测碳通量在时间与空间上的变化。但这些应用也存在一些问题需要注意，比如外推能力，抽样或数据偏见，忽视混杂因素，统计关联与因果关系等。经典的机器学习方法需要一些先验知识确定一些时空相关feature，而不能自动探索数据的时空特征。一些时空动态特征比如“记忆效应”可以作为feature手动加入到传统机器学习中，但最新的深度学习已经没有这些限制。 （2）深度学习在地球系统科学中的机遇深度学习已在其他领域得到了众多应用，但在地学中的应用还处于初级阶段。已有一些研究显示深度学习可以很好的提取时空特征，比如极端天气，而不需要很多人类干预。这也可用于城市变化的遥感自动提取。深度学习方法通常被划分为空间学习（例如，用于对象分类的卷积神经网络）和序列学习（例如，语音识别），但两者逐渐融合，可应用视频与动作识别问题。这些问题类似于地学中随时间变化的多维度结构，例如有序降水对流与植被状态。虽然有很大应用前景，但应用于时空变化的大气海洋传输或植被动态还有待发展。 （3）深度学习在地球系统科学中的挑战虽然传统深度学习的应用对象与地学现象有很大相似性，但也存在重要区别。比如高光谱、多波段就比基于三原色RGB的计算机图像识别复杂很多，此外还有带噪音、有缺测的卫星数据。另外，波段、时间与空间维度的集合也会带来计算量的挑战。计算机图片中识别可大量“狗”，“猫”现成训练样本，而地学中没有类似被标记的大量训练样本，如干旱。对外，作者总结出五大挑战，分别来自可解释性、物理一致性、数据的复杂与确定性、缺少标记样本、以及计算需求。若这些挑战能解决，那么深度学习将对地学带来巨大改变。近期最有前景的应用是”临近预报“(nowcasting)，未来是长期预测。作者认为深度学习将很快成为地学中分类与时空预测问题的主要方法。 （4） 与物理建模集成物理建模（理论驱动）与机器学习建模（数据驱动）过去往往被认为是两个领域，具有不同范式。但其实两种方法可以相互补充的，前者外推能力强，后者更灵活可发现新规律。作者提出二种方法可结合的几个潜在点：改善参数化、用机器学习“替代”物理模型中子模块、模型与观测的不匹配分析，约束子模型、代替模型或仿真。*Fig. 2 | Linkages between physical models and machine learning. * （5）推动科学发展机器学习方法无疑给分类和预测问题带来大幅提高。机器学习的数据驱动方法还可从数据中挖掘出过去不知道的新信息，从而推动新机制新认识的产生。*Fig. 3 | Interpretation of hybrid modelling as deepening a deep learning architecture by adding one or several physical layers after the multilayer neural network to make the model more physically realistic. * （6）结语。地球科学大数据时代机器学习很有用，但也存在应用挑战，作者对此提出四点建议：识别数据的特殊性、推论的合理性和可解释性、不确定性估计、针对复杂物理模式进行验证。未来过程模型与机器学习将进一步结合。数据驱动的机器学习不会替代物理模型，但是会起到补充和丰富的作用，最终实现混合建模。 PS：第一作者Markus Reichstein是大牛，单位是1 Department of Biogeochemical Integration, Max Planck Institute for Biogeochemistry, Jena, Germany. 2 Michael-Stifel-Center Jena for Data-driven and Simulation Science, Jena, Germany. References： [1] https://mp.weixin.qq.com/s/uL4C3birbbFQ-UhntuTgRg[2] http://www.nature.com/articles/s41586-019-0912-1]]></content>
@@ -9,8 +22,8 @@
         <category>Deep-learning &amp; Gis</category>
       </categories>
       <tags>
-        <tag>Deep-learning</tag>
         <tag>Gis</tag>
+        <tag>Deep-learning</tag>
         <tag>Data-driven-Earth-system-science</tag>
       </tags>
   </entry>
